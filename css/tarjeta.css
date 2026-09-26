@@ -1,3 +1,9 @@
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 4.5rem;
+}
+
 .tarjetas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
