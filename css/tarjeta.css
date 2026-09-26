@@ -1,0 +1,46 @@
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.tarjeta {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.contenido {
+    padding: 20px;
+}
+
+.contenido h3 {
+    margin: 0 0 10px;
+}
+
+.contenido p {
+    color: #666;
+    line-height: 1.5;
+}
+
+.precio {
+    display: block;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
