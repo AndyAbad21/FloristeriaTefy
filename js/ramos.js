@@ -30,3 +30,9 @@ const ramo3 = new Tarjeta(
 contenedor.appendChild(ramo1.crear());
 contenedor.appendChild(ramo2.crear());
 contenedor.appendChild(ramo3.crear());
+contenedor.appendChild(ramo1.crear());
+contenedor.appendChild(ramo2.crear());
+contenedor.appendChild(ramo3.crear());
+contenedor.appendChild(ramo1.crear());
+contenedor.appendChild(ramo2.crear());
+contenedor.appendChild(ramo3.crear());
