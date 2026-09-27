@@ -2,37 +2,63 @@ import { Tarjeta } from "./targeta.js";
 
 const contenedor = document.getElementById("contenedor-ramos");
 
+const ramos = [
 
-const ramo1 = new Tarjeta(
-    "Ramo de Rosas",
-    "Hermoso ramo de rosas rojas, ideal para expresar amor y cariño.",
-    "img/ramo1.jpg",
-    "25.00"
-);
+    {
+        nombre: "Torguta de mar",
+        descripcion: "Hermoso tortuga de mar tejida a mano.",
+        imagenes: [
+            "img/productos/tortuga1-1.png",
+            "img/productos/tortuga1-2.png",
+            "img/productos/tortuga1-3.png",
+            "img/productos/tortuga1-4.png"
+        ],
+        precio: "25.00"
+    },
+    {
+        nombre: "Ramo de campanas",
+        descripcion: "Hermoso ramo de campanas tejido a mano.",
+        imagenes: [
+            "img/productos/ramo-campanas1-1.png",
+        ],
+        precio: "25.00"
+    },
+    {
+        nombre: "Abeja de miel",
+        descripcion: "Hermoso abeja de miel tejida a mano.",
+        imagenes: [
+            "img/productos/abeja1-1.png",
+        ],
+        precio: "25.00"
+    },
+    {
+        nombre: "Ramo de tulipanes",
+        descripcion: "Hermoso ramo de tulipanes tejido a mano.",
+        imagenes: [
+            "img/productos/ramo-tulipanes1.1.png",
+        ],
+        precio: "25.00"
+    },
+    {
+        nombre: "Pollo con gorrito",
+        descripcion: "Hermoso pollo con gorrito tejido a mano.",
+        imagenes: [
+            "img/productos/pollo1-1.png",
+        ],
+        precio: "25.00"
+    },
+];
 
 
-const ramo2 = new Tarjeta(
-    "Ramo Primavera",
-    "Una combinación de flores frescas y coloridas para cualquier ocasión.",
-    "img/ramo2.jpg",
-    "30.00"
-);
+ramos.forEach(ramo => {
 
+    const tarjeta = new Tarjeta(
+        ramo.nombre,
+        ramo.descripcion,
+        ramo.imagenes,
+        ramo.precio
+    );
 
-const ramo3 = new Tarjeta(
-    "Ramo Elegancia",
-    "Una selección elegante de flores para sorprender a esa persona especial.",
-    "img/ramo3.jpg",
-    "35.00"
-);
+    contenedor.appendChild(tarjeta.crear());
 
-
-contenedor.appendChild(ramo1.crear());
-contenedor.appendChild(ramo2.crear());
-contenedor.appendChild(ramo3.crear());
-contenedor.appendChild(ramo1.crear());
-contenedor.appendChild(ramo2.crear());
-contenedor.appendChild(ramo3.crear());
-contenedor.appendChild(ramo1.crear());
-contenedor.appendChild(ramo2.crear());
-contenedor.appendChild(ramo3.crear());
+});

@@ -1,52 +1,418 @@
-h1 {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 4.5rem;
+/* =========================
+   HERO PRINCIPAL
+========================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 450px;
+
+    background-image: url("../img/logo/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
 }
+
+
+/* Capa para hacer que el logo destaque */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(255, 255, 255, 0.35);
+}
+
+
+/* Contenido encima de la imagen */
+
+.hero-contenido {
+    position: relative;
+
+    z-index: 1;
+
+    text-align: center;
+
+    max-width: 600px;
+
+    padding: 30px;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: block;
+
+    width: 900px;
+    max-width: 90%;
+
+    height: auto;
+
+    margin: 0 auto 20px;
+}
+
+/* Línea decorativa */
+
+.linea-decorativa {
+    width: 55px;
+    height: 3px;
+
+    margin: 14px auto 15px;
+
+    background: #222;
+
+    border-radius: 10px;
+}
+
+/* .hero-contenido h1::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 3px;
+
+    margin: 14px auto 15px;
+
+    background: #222;
+
+    border-radius: 10px;
+} */
+
+
+/* Catálogo */
+
+.hero-contenido p{
+    margin-top: 10;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+.productos {
+    padding-top: 10px;
+}
+
+
+.productos p {
+    text-align: center;
+
+    margin: 10px 0 5px 0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+
+/* ========================================
+   CONTENEDOR DE TARJETAS
+======================================== */
 
 .tarjetas {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    width: 90%;
-    max-width: 1200px;
-    margin: 40px auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 0 24px;
+
+    margin: 45px 0;
+
+    align-items: stretch;
 }
+
+
+/* ========================================
+   TARJETA
+======================================== */
 
 .tarjeta {
-    background-color: white;
-    border-radius: 15px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    background: #ffffff;
+
+    border: 1px solid #f1e5e9;
+    border-radius: 20px;
+
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
+
+    box-shadow: 0 6px 20px rgba(90, 48, 62, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
+
+
+/* Efecto al pasar el cursor */
 
 .tarjeta:hover {
-    transform: translateY(-5px);
+    transform: translateY(-7px);
+
+    box-shadow: 0 15px 35px rgba(90, 48, 62, 0.16);
+
+    border-color: #e8c5d1;
 }
 
-.tarjeta img {
+
+/* ========================================
+   GALERÍA DE IMÁGENES
+======================================== */
+
+.galeria {
+    position: relative;
+
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: 270px;
+
+    overflow: hidden;
+    background: #f8edf1;
 }
+
+
+/* Imagen del producto */
+
+.imagen-producto {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+
+/* Zoom suave al pasar el cursor */
+
+.tarjeta:hover .imagen-producto {
+    transform: scale(1.06);
+}
+
+
+/* ========================================
+   FLECHAS DEL CARRUSEL
+======================================== */
+
+.flecha {
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.88);
+    color: #754456;
+
+    font-size: 21px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+
+    opacity: 0.85;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        opacity 0.25s ease;
+
+    z-index: 2;
+}
+
+
+/* Posición de las flechas */
+
+.izquierda {
+    left: 12px;
+}
+
+.derecha {
+    right: 12px;
+}
+
+
+/* Hover de las flechas */
+
+.flecha:hover {
+    background: #a75d78;
+    color: #ffffff;
+
+    opacity: 1;
+
+    transform: translateY(-50%) scale(1.08);
+}
+
+
+/* ========================================
+   CONTENIDO
+======================================== */
 
 .contenido {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    padding: 23px 22px 22px;
 }
+
+
+/* Nombre del ramo */
 
 .contenido h3 {
-    margin: 0 0 10px;
+    margin: 0 0 12px;
+
+    color: #482c38;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.3;
 }
 
+
+/* Descripción */
+
 .contenido p {
-    color: #666;
-    line-height: 1.5;
+    margin: 0;
+
+    color: #81747a;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    flex: 1;
 }
+
+
+/* ========================================
+   PRECIO
+======================================== */
 
 .precio {
     display: block;
-    margin-top: 15px;
-    font-size: 20px;
-    font-weight: bold;
+
+    margin-top: 20px;
+    padding-top: 15px;
+
+    border-top: 1px solid #f1e5e9;
+
+    color: #a34f70;
+
+    font-size: 21px;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+    .tarjetas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 92%;
+        gap: 22px;
+    }
+
+    .galeria {
+        height: 250px;
+    }
+
+}
+
+
+/* ========================================
+   CELULAR
+======================================== */
+
+@media (max-width: 600px) {
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+        width: 90%;
+        gap: 25px;
+    }
+
+    .galeria {
+        height: 280px;
+    }
+
+    .contenido {
+        padding: 22px;
+    }
+
+    .contenido h3 {
+        font-size: 20px;
+    }
+
+}
+
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .tarjeta,
+    .imagen-producto,
+    .flecha {
+        transition: none;
+    }
+
 }
