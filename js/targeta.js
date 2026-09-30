@@ -1,10 +1,25 @@
 export class Tarjeta {
 
-    constructor(nombre, descripcion, imagenes, precio) {
+    constructor(
+        nombre,
+        descripcion,
+        imagenes,
+        precio,
+        cantidad,
+        caracteristica,
+        disponible,
+        detalles
+    ) {
+
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagenes = imagenes;
         this.precio = precio;
+        this.cantidad = cantidad;
+        this.caracteristica = caracteristica;
+        this.disponible = disponible;
+        this.detalles = detalles;
+
         this.imagenActual = 0;
     }
 
@@ -15,34 +30,69 @@ export class Tarjeta {
         tarjeta.classList.add("tarjeta");
 
         tarjeta.innerHTML = `
-            <div class="galeria">
+        <div class="galeria">
 
-                <img 
-                    class="imagen-producto"
-                    src="${this.imagenes[0]}"
-                    alt="${this.nombre}"
-                >
+            <img 
+                class="imagen-producto"
+                src="${this.imagenes[0]}"
+                alt="${this.nombre}"
+            >
 
-                <button class="flecha izquierda">
-                    &#10094;
-                </button>
+            <button class="flecha izquierda">
+                &#10094;
+            </button>
 
-                <button class="flecha derecha">
-                    &#10095;
-                </button>
+            <button class="flecha derecha">
+                &#10095;
+            </button>
+
+        </div>
+
+        <div class="contenido">
+
+            <h3>${this.nombre}</h3>
+
+            <p>${this.descripcion}</p>
+
+            <div class="informacion-producto">
+
+                <span class="cantidad">
+                     ${this.cantidad}
+                </span>
+
+                <span class="caracteristica">
+                     ${this.caracteristica}
+                </span>
+
+                <span class="material">
+                    🧵 ${this.detalles.material}
+                </span>
+
+                <span class="tamaño">
+                    📏 ${this.detalles.tamaño}
+                </span>
+
+                <span class="colores">
+                    🎨 ${this.detalles.colores}
+                </span>
 
             </div>
 
-            <div class="contenido">
+            <span class="precio">
+                $${this.precio}
+            </span>
 
-                <h3>${this.nombre}</h3>
+            <div class="disponibilidad ${this.disponible ? 'disponible' : 'agotado'}">
 
-                <p>${this.descripcion}</p>
-
-                <span class="precio">$${this.precio}</span>
+                ${this.disponible
+                ? '✓ Disponible'
+                : '✕ Agotado'
+            }
 
             </div>
-        `;
+
+        </div>
+    `;
 
 
         const imagen = tarjeta.querySelector(".imagen-producto");
